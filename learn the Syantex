@@ -1,0 +1,51 @@
+
+// this is global state
+//   let State={
+//     count : 0
+// }
+// above the state is not lishen by react because its only listen state syntex like thus
+import { useState } from "react";
+//use this specific called hook , use this hook to define your state, then if you actually update state then it will rerender
+
+
+ // wen ever we write js variable or render js veriable inside the react component 
+  // write inside the curly bracets  
+//this syntex we have to follow to reder dynamic veriable( state.count)insode the componentt
+//there is no like html syntx onclick = "function ()" here we definde onclick = {functin name}
+
+
+function App() {
+  //The useState hook is used to create a state variable count and a function setCount to update that state. Initially, count is set to 0
+  const[count,setCount] = useState(0) ;
+// why we use setCount , count will give the current value and setcount is use to uodate thre value of count ) 
+     return (
+      //reder the custom buttom give the two input 1st count 2nd setcount and reder 
+ // this is parent component 
+ <div>
+     <CustomButton count ={count} setCount ={setCount}></CustomButton>
+  </div>
+  )
+  // here we are sawd evertimg imsider this main App application
+}
+//this gyu tkew state state variable as input thate we can render Afeter counter
+// we are define custombutton component which tke some state as input and reder counter space what ever props as input over counter
+//it is not juast getting state as input it is also geetting state updter as an input whatever state update as inhput
+// this is child component
+function CustomButton(props){ 
+  // mow put updatation logic here
+  function onClickHandler() {
+   props.setCount(props.count+1);
+  }
+
+
+  return <button onClick={onClickHandler}>
+      Counter{props.count}
+  </button>
+}
+
+// this is better way to write our application
+// WE can make multiple sub childern component and parent component just render the child component
+
+
+
+export default App
