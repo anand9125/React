@@ -1,0 +1,53 @@
+import { useState } from 'react'
+import './App.css'
+import React ,{Fragment} from "react"
+let counter =4;
+function App() {
+  const[todo,setTodo] = useState([
+    { id :1,
+      title :"go to gym" ,
+      description : "go to class"
+    },{
+      id :2,
+      title :"go to gym" ,
+      description : "go to class"
+    },{
+      id :3,
+      title :"go to gym" ,
+      description : "go to class"
+    }
+  ] )
+  function addTodo(){
+    setTodo([...todo,{  
+      // spread syntex
+      id :counter++,
+      title : Math.random(),
+      description :Math.random()
+    }])
+  }
+ 
+  return (
+    <div>
+      <button onClick={addTodo}>Add a New Todo</button>
+      {todo.map(function(todos){
+        return <Todo key = {todos.id} tittle ={todos.title} description = {todos.description} />
+      })}
+      
+  </div>
+  )
+}
+function Todo ({tittle,description}){
+  return <div>
+    <h1>
+      {tittle}
+    </h1>
+    <h2>
+      {description}
+    </h2>
+  </div>
+}
+
+
+
+export default App
+ 
