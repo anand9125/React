@@ -1,0 +1,33 @@
+import { useState } from 'react'
+import './App.css'
+
+function App() {
+  
+  return (
+    <div>
+     <HeaderWithbutton></HeaderWithbutton>
+     <Header title2= " My name is anand2"></Header>
+
+  </div>
+  )
+}
+function HeaderWithbutton(){
+  const[title1 , setTitle] = useState( "My name is anand1")
+  function updateTitle(){
+    setTitle("My name is " + Math.random());
+  }
+  return <div>
+       <button onClick={updateTitle} >CLick to change the title</button>
+       <Header title2= {title1}></Header>
+
+  </div>
+
+}
+
+function Header({title2}){
+    return <div>
+      {title2}
+    </div>
+   }
+
+export default App
