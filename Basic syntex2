@@ -1,0 +1,39 @@
+import { useState } from 'react'
+import './App.css'
+
+function App() {
+  const[title1 , setTitle] = useState( "My name is anand1")
+  function updateTitle(){
+    setTitle("My name is " + Math.random());
+  }
+  return (
+    <div>
+      <button onClick={updateTitle} >CLick to change the title</button>
+     <Header title2= {title1}></Header>
+  <Header title2= " My name is anand2"></Header>
+
+  </div>
+  )
+}
+
+//there are a component Header jiski body niche h titl2 se isse pass kar rhe hai aur niche jo kuch bhi ho rha h ushe wo upar comppponent mereturn kar rha h 
+//aur whi render hokar chromw me render ho rha hai 
+
+
+function Header({title2}){
+    return <div>
+      {title2}
+    </div>
+   }
+
+export default App
+ 
+//entire code me ho kya rha hai
+//pahle tittle ki jagh pe jo hook ke andar likha hai wo hai
+//setTitle will update ki jo title me update hua hai wo update karega 
+// header nam ki component hai jika body niche define hai header fnction me jime hm title pass kar rhe hai 
+//jab bhi koi changes honge to wo component se pass hokar function me jayega aur jo kuch bhi command diya rhega wo return karega 
+//when we are rendering then we want ki on clicking onclick the button only My name is MAth.rander sholud be render beacuse only this is changes
+//but everthimng is re render
+//Anytime when setTitle updatede then App rerender (parent re ender ) to uske ssare child will re render Means all header  
+// now we want less no of re rendering How?
