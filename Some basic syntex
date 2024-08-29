@@ -1,0 +1,24 @@
+import { useState } from 'react'
+import './App.css'
+
+function App() {
+  const [count, setCount] = useState(3)  // 3 is inital value of count and count and setCount that is useState function returns you basically return array first value goes ot count and second setCount
+  //this is how define the state variable
+  // if we dont define like this react would not watch this. the application will not rerander when changes means your application look like same  
+// const arr = [1,2];
+// const [a,b] =arr;
+// console.log(a); o/p 1 this is how in react we are wriitng 
+
+
+  return (
+    <div>
+      
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        </div>
+  )
+}
+
+export default App
+ 
