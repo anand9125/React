@@ -1,0 +1,60 @@
+import React, { useEffect, useState } from 'react';
+
+function App() {
+  const [todos, setTodos] = useState([
+    {
+      title: "hello",
+      description: "it's me"
+    }
+  ]);
+
+  //.then() is a method used to handle
+  // the resolved value of the Promise returned by fetch.
+
+//setTodos is likely a state setter function from useState. 
+//It updates the state with the todos array from the fetched JSON data.
+
+//useEffect Hook:
+
+//useEffect is a React hook that runs a side effect in your component.
+// It can be used for various side effects like data fetching, subscriptions, or manual DOM manipulations.
+//The function passed to useEffect runs after the component renders.
+// By default, it runs after every render, but you can control when it
+// runs using a dependency array (which is missing in this case).
+
+
+  useEffect(  function(){
+    fetch("")
+    .then()(async function(res) {
+      const json = await res.json();
+      setTodos(json.todos)      
+    })
+  })
+  
+  useEffect(()=>{
+    fetch ("")
+   .then (async (res)=>{
+    const json = res.json();
+    setTodos(json)
+ }
+ )}
+  )
+
+  return (<div>
+    {todos.map(todo => <Todo title={todo.title} description={todo.description}></Todo>)}
+
+   
+    </div>
+  );
+}
+
+function Todo({ title, description }) {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <h2>{description}</h2>
+    </div>
+  );
+}
+
+export default App;
