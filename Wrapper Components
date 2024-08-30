@@ -1,0 +1,19 @@
+function App() {
+  return  <div>
+    <CardWrapper >
+    inside we provide bunch of childeren could be string span 
+    components we get the acces of the whole thing in children variable
+    </CardWrapper>
+</div>}    
+
+///uses of wrapper we can make another wrapper and write inside what we want and use it again
+
+function CardWrapper({ children}) {
+  return (
+    <div style={{ border: "2px solid black",padding :20 }}>
+      {children}
+    </div>
+  );
+}
+
+export default App;
