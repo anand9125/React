@@ -32,6 +32,13 @@ function App() {
       {todo.map(function(todos){
         return <Todo key = {todos.id} tittle ={todos.title} description = {todos.description} />
       })}
+or we can do 
+div>
+      <button onClick={addTodo}>Add a New Todo</button>
+      {todo.map(function(todos , index){
+        return <Todo key = {index} tittle ={todos.title} description = {todos.description} />
+      })}
+so we dont need to provide the specfic id to everyone bt this is not right way
       
   </div>
   )
